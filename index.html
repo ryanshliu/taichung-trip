@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>台中・霧峰・故宮南院 兩天一夜自駕完全手冊 (9/25-9/26 旗艦終極版)</title>
+  <title>台中・霧峰・故宮南院 兩天一夜自駕手冊 (9/25-9/26 Google Maps 導航整合版)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -14,7 +14,10 @@
       --accent: #e11d48;
       --accent-warm: #d97706;
       --wufeng: #854d0e;
-      --npm-gold: #b45309;
+      --cinnamon: #b45309;
+      --eggroll: #ca8a04;
+      --npm-gold: #9a3412;
+      --map-blue: #1d4ed8;
       --bg: #f8fafc;
       --card-bg: #ffffff;
       --text: #0f172a;
@@ -30,7 +33,7 @@
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.65;
-      padding-bottom: 75px;
+      padding-bottom: 70px;
     }
 
     header {
@@ -54,10 +57,10 @@
       border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
-    header h1 { font-size: 2.15rem; font-weight: 900; margin-bottom: 8px; }
-    header p { font-size: 1.02rem; opacity: 0.95; max-width: 820px; margin: 0 auto; }
+    header h1 { font-size: 2.1rem; font-weight: 900; margin-bottom: 8px; }
+    header p { font-size: 1.02rem; opacity: 0.95; max-width: 860px; margin: 0 auto; }
 
-    .container { max-width: 1140px; margin: -35px auto 0; padding: 0 16px; position: relative; z-index: 10; }
+    .container { max-width: 1160px; margin: -35px auto 0; padding: 0 16px; position: relative; z-index: 10; }
 
     /* Sticky Nav */
     .nav-tabs {
@@ -85,7 +88,7 @@
 
     .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; }
 
-    /* Visual Route Map */
+    /* Route Map Box */
     .map-container {
       background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
       border-radius: 14px;
@@ -100,16 +103,16 @@
     }
     .map-header h3 { font-size: 1.15rem; color: #2dd4bf; }
     .map-flow {
-      display: flex; align-items: center; justify-content: space-between; min-width: 1020px; padding: 20px 10px;
+      display: flex; align-items: center; justify-content: space-between; min-width: 1140px; padding: 20px 10px;
       position: relative;
     }
     .map-flow::before {
-      content: ""; position: absolute; top: 48px; left: 30px; right: 30px; height: 4px;
-      background: linear-gradient(90deg, #0284c7 0%, #14b8a6 20%, #f59e0b 38%, #854d0e 55%, #e11d48 70%, #10b981 85%, #b45309 100%);
+      content: ""; position: absolute; top: 48px; left: 25px; right: 25px; height: 4px;
+      background: linear-gradient(90deg, #0284c7 0%, #854d0e 20%, #ca8a04 40%, #b45309 55%, #14b8a6 70%, #e11d48 85%, #9a3412 100%);
       z-index: 1; border-radius: 2px;
     }
     .map-node {
-      position: relative; z-index: 2; text-align: center; width: 130px;
+      position: relative; z-index: 2; text-align: center; width: 125px;
       background: #1e293b; border: 2px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 12px 6px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: transform 0.2s;
     }
@@ -118,13 +121,35 @@
       width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
       margin: 0 auto 6px; font-weight: 800; font-size: 0.8rem; color: white;
     }
-    .node-title { font-weight: 800; font-size: 0.9rem; margin-bottom: 2px; }
+    .node-title { font-weight: 800; font-size: 0.88rem; margin-bottom: 2px; }
     .node-sub { font-size: 0.7rem; color: #94a3b8; line-height: 1.3; }
 
     .transit-label {
-      color: #94a3b8; font-weight: 700; font-size: 0.72rem; z-index: 2; background: #0f172a;
+      color: #94a3b8; font-weight: 700; font-size: 0.7rem; z-index: 2; background: #0f172a;
       padding: 3px 6px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.15); white-space: nowrap;
     }
+
+    /* Navigation CTA Banner */
+    .nav-cta-card {
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      border: 2px solid #93c5fd;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .nav-cta-info h4 { color: #1e40af; font-size: 1.05rem; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+    .nav-cta-info p { font-size: 0.88rem; color: #3b82f6; }
+    .nav-cta-btn {
+      background: #2563eb; color: white !important; font-weight: 700; font-size: 0.92rem;
+      padding: 10px 18px; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+      box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.25); transition: all 0.2s;
+    }
+    .nav-cta-btn:hover { background: #1d4ed8; transform: translateY(-2px); }
 
     /* Day Card */
     .day-card {
@@ -178,13 +203,17 @@
       background: #fefce8; border-left: 4px solid var(--wufeng); border-radius: 6px;
       padding: 9px 13px; margin: 8px 0; font-size: 0.88rem; color: #713f12;
     }
+    .cinnamon-box {
+      background: #fef3c7; border-left: 4px solid var(--cinnamon); border-radius: 6px;
+      padding: 9px 13px; margin: 8px 0; font-size: 0.88rem; color: #78350f;
+    }
+    .eggroll-box {
+      background: #fef9c3; border-left: 4px solid var(--eggroll); border-radius: 6px;
+      padding: 9px 13px; margin: 8px 0; font-size: 0.88rem; color: #713f12;
+    }
     .npm-box {
       background: #fff7ed; border-left: 4px solid var(--npm-gold); border-radius: 6px;
       padding: 9px 13px; margin: 8px 0; font-size: 0.88rem; color: #7c2d12;
-    }
-    .avoid-box {
-      background: #fffbeb; border-left: 4px solid #d97706; border-radius: 6px;
-      padding: 9px 13px; margin: 8px 0; font-size: 0.88rem; color: #78350f;
     }
 
     .links-bar { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; align-items: center; }
@@ -194,6 +223,8 @@
       font-size: 0.8rem; font-weight: 600; border: 1px solid var(--border); transition: all 0.2s;
     }
     a.link-pill:hover { background: var(--primary); color: white; border-color: var(--primary); }
+    a.link-pill.map-btn { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+    a.link-pill.map-btn:hover { background: #1d4ed8; color: white; }
 
     .hotel-card {
       border: 1px solid var(--border); border-radius: 12px; padding: 18px;
@@ -206,106 +237,148 @@
       font-weight: 700; font-size: 0.8rem;
     }
 
+    /* Embedded Map responsive */
+    .map-embed {
+      width: 100%; height: 380px; border-radius: 12px; border: 1px solid var(--border); margin-top: 10px;
+    }
+
     footer { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 30px; }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="badge">🚗 2-Day Central Taiwan Master Road Trip (9/25 五 - 9/26 六 旗艦終極版)</div>
-    <h1>台中・霧峰・故宮南院 兩天一夜自駕企劃書</h1>
-    <p>台南健康路出發・外埔高鐵景觀・清水米糕・霧峰林家大花廳・綠美圖・肉桂捲・六月初一・故宮南院《龍藏經》</p>
+    <div class="badge">🚗 2-Day Central Taiwan Master Road Trip (9/25 五 - 9/26 六)</div>
+    <h1>台中・霧峰・故宮南院 自駕行程導航手冊</h1>
+    <p>整合 Google Maps 完整多點導航・由南往北順向推進・故宮南院夕陽落日・無折返順暢版</p>
   </header>
 
   <div class="container">
     <nav class="nav-tabs">
-      <a href="#map-section" class="nav-tab active">🗺️ 全景動線地圖</a>
-      <a href="#hotel-section" class="nav-tab">🏨 逢甲住宿 (星享道)</a>
-      <a href="#itinerary-d1" class="nav-tab">📅 Day 1 (9/25 五)：外埔・清水米糕・霧峰林家宮保第・逢甲</a>
-      <a href="#itinerary-d2" class="nav-tab">📅 Day 2 (9/26 六)：綠美圖・肉桂捲・六月初一・故宮南院</a>
-      <a href="#tips-section" class="nav-tab">💡 路線與停車避雷</a>
+      <a href="#map-section" class="nav-tab active">🗺️ 全景動線</a>
+      <a href="#google-routes" class="nav-tab">🧭 Google Maps 多點導航</a>
+      <a href="#hotel-section" class="nav-tab">🏨 逢甲星享道住宿</a>
+      <a href="#itinerary-d1" class="nav-tab">📅 Day 1：霧峰・肉桂捲・清水米糕</a>
+      <a href="#itinerary-d2" class="nav-tab">📅 Day 2：綠美圖・kafeD・故宮南院</a>
+      <a href="#tips-section" class="nav-tab">💡 自駕避雷</a>
     </nav>
 
     <!-- Visual Driving Route Map -->
     <section id="map-section" class="section">
-      <h2 class="section-title">🗺️ 自駕行程視覺化動線圖 (完美大環線・順暢不回頭)</h2>
+      <h2 class="section-title">🗺️ 自駕行程視覺化動線圖 (幾何單向推進・絕不走回頭路)</h2>
       <div class="map-container">
         <div class="map-header">
-          <h3>📍 9/25(五)～9/26(六) 動線：台南 ➔ 外埔清水 ➔ 霧峰文化特區 ➔ 逢甲 ➔ 綠美圖 ➔ 六月初一 ➔ 故宮南院 ➔ 台南</h3>
-          <span style="font-size:0.8rem; background:rgba(255,255,255,0.15); padding:3px 10px; border-radius:20px;">國道3號/4號＋台74＋國道1號快速串聯</span>
+          <h3>📍 9/25(五)～9/26(六) 完美幾何順向圖</h3>
+          <span style="font-size:0.8rem; background:rgba(255,255,255,0.15); padding:3px 10px; border-radius:20px;">國3 ➔ 台74/台63 ➔ 國4 ➔ 逢甲 ➔ 國1/台82直達</span>
         </div>
 
         <div class="map-flow">
           <div class="map-node">
             <div class="node-badge" style="background:#0284c7;">起點</div>
             <div class="node-title">台南健康路</div>
-            <div class="node-sub">9/25(五) 07:30<br>摩斯漢堡早餐</div>
+            <div class="node-sub">9/25(五) 07:45<br>摩斯漢堡出發</div>
           </div>
 
-          <div class="transit-label">🚗 國3直上 1.7h</div>
+          <div class="transit-label">🚗 國3直達 1.5h</div>
 
           <div class="map-node">
-            <div class="node-badge" style="background:#14b8a6;">D1</div>
-            <div class="node-title">水流東桐花</div>
-            <div class="node-sub">高鐵觀景台呼嘯<br>葡萄酒莊園綠意</div>
+            <div class="node-badge" style="background:#854d0e;">D1 南台中</div>
+            <div class="node-title">霧峰林家宮保第</div>
+            <div class="node-sub">國定古蹟一品官宅<br>大花廳福州戲台</div>
           </div>
 
-          <div class="transit-label">🚗 18m</div>
+          <div class="transit-label">🚗 台74/中投 15m</div>
 
           <div class="map-node">
-            <div class="node-badge" style="background:#f59e0b;">D1</div>
-            <div class="node-title">清水經典小吃</div>
-            <div class="node-sub">阿財米糕肉羹<br>樹下阿婆粉圓冰</div>
+            <div class="node-badge" style="background:#ca8a04;">D1 南屯</div>
+            <div class="node-title">六月初一永春店</div>
+            <div class="node-sub">清水模禮物之丘<br>吹冷氣大方試吃</div>
           </div>
 
-          <div class="transit-label">🚗 國4轉國3 35m</div>
+          <div class="transit-label">🚗 向上路 10m</div>
 
           <div class="map-node">
-            <div class="node-badge" style="background:#854d0e;">D1</div>
-            <div class="node-title">霧峰文化特區</div>
-            <div class="node-sub">林家宮保第大花廳<br>亞大安藤忠雄美術館</div>
+            <div class="node-badge" style="background:#b45309;">D1 西區</div>
+            <div class="node-title">第五市場肉桂捲</div>
+            <div class="node-sub">捲捲肉桂現烤出爐<br>市場道地早午餐</div>
           </div>
 
-          <div class="transit-label">🚗 台74快線 20m</div>
+          <div class="transit-label">🚗 特一號/國4 25m</div>
 
           <div class="map-node">
-            <div class="node-badge" style="background:#e11d48;">住宿</div>
+            <div class="node-badge" style="background:#14b8a6;">D1 清水</div>
+            <div class="node-title">清水眷村＆米糕</div>
+            <div class="node-sub">阿財米糕/樹下粉圓<br>老眷村聚落散步</div>
+          </div>
+
+          <div class="transit-label">🚗 台74快線 18m</div>
+
+          <div class="map-node">
+            <div class="node-badge" style="background:#e11d48;">住宿 西屯</div>
             <div class="node-title">逢甲星享道</div>
-            <div class="node-sub">專屬室內停車場<br>夜逛逢甲美食商圈</div>
+            <div class="node-sub">專屬地下停車場<br>夜逛逢甲美食街</div>
           </div>
 
           <div class="transit-label">🚗 6m</div>
 
           <div class="map-node">
-            <div class="node-badge" style="background:#10b981;">D2</div>
-            <div class="node-title">臺中綠美圖</div>
-            <div class="node-sub">妹島和世純白建築<br>第五市場肉桂捲</div>
+            <div class="node-badge" style="background:#10b981;">D2 水湳</div>
+            <div class="node-title">綠美圖＆kafeD</div>
+            <div class="node-sub">妹島和世純白雙館<br>旗艦年輪蛋糕午茶</div>
           </div>
 
-          <div class="transit-label">🚗 12m</div>
+          <div class="transit-label">🚗 國1直下 1h15m</div>
 
           <div class="map-node">
-            <div class="node-badge" style="background:#d97706;">D2</div>
-            <div class="node-title">六月初一旗艦</div>
-            <div class="node-sub">清水模禮物之丘<br>8結蛋捲伴手禮</div>
+            <div class="node-badge" style="background:#9a3412;">D2 嘉義</div>
+            <div class="node-title">故宮南院</div>
+            <div class="node-sub">國寶常設展覽<br>至美橋落日晚霞</div>
           </div>
 
-          <div class="transit-label">🚗 國1南下 1h</div>
-
-          <div class="map-node">
-            <div class="node-badge" style="background:#b45309;">D2</div>
-            <div class="node-title">嘉義故宮南院</div>
-            <div class="node-sub">國寶《龍藏經》<br>至美橋落日晚霞</div>
-          </div>
-
-          <div class="transit-label">🚗 台82轉國1 45m</div>
+          <div class="transit-label">🚗 台82轉國1 40m</div>
 
           <div class="map-node">
             <div class="node-badge" style="background:#059669;">終點</div>
             <div class="node-title">返抵台南</div>
-            <div class="node-sub">18:15 平安抵達<br>完全避開收假潮</div>
+            <div class="node-sub">18:05 平安抵達<br>滿載美饌甜點</div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Google Maps Multi-stop Route Section -->
+    <section id="google-routes" class="section">
+      <h2 class="section-title">🧭 Google Maps 多點自駕路線導航 (手機點擊直接開啟導航)</h2>
+      <p style="font-size:0.92rem; color:#475569; margin-bottom:16px;">
+        已將兩天的所有停留站點依序串聯。上車後直接點擊下方藍色按鈕，手機 Google Maps App 將自動載入整天的多點路線：
+      </p>
+
+      <!-- Day 1 Multi-stop Route Button -->
+      <div class="nav-cta-card">
+        <div class="nav-cta-info">
+          <h4>🗺️ Day 1 完整多點自駕路線導航 (9/25 週五)</h4>
+          <p>台南健康路 ➔ 霧峰林家宮保第 ➔ 六月初一永春店 ➔ 第五市場捲捲肉桂 ➔ 清水眷村 ➔ 阿財米糕 ➔ 逢甲星享道酒店</p>
+        </div>
+        <a class="nav-cta-btn" href="https://www.google.com/maps/dir/702台南市南區健康路二段/霧峰林家宮保第園區/六月初一8結蛋捲+永春觀光旗艦店/捲捲肉桂+Triple+3+rolls/清水眷村文化園區/阿財米糕店/台中逢甲星享道酒店" target="_blank">
+          🚀 開啟 Day 1 Google Maps 多點導航
+        </a>
+      </div>
+
+      <!-- Day 2 Multi-stop Route Button -->
+      <div class="nav-cta-card" style="background:linear-gradient(135deg, #fef3c7 0%, #ffedd5 100%); border-color:#fed7aa;">
+        <div class="nav-cta-info">
+          <h4 style="color:#9a3412;">🗺️ Day 2 完整多點自駕路線導航 (9/26 週六)</h4>
+          <p style="color:#c2410c;">逢甲星享道酒店 ➔ 臺中綠美圖 ➔ kafeD台中水湳旗艦店 ➔ 故宮南院 ➔ 台南健康路二段</p>
+        </div>
+        <a class="nav-cta-btn" style="background:#ea580c;" href="https://www.google.com/maps/dir/台中逢甲星享道酒店/臺中綠美圖/kafeD+台中水湳旗艦店/國立故宮博物院南部院區/702台南市南區健康路二段" target="_blank">
+          🚀 開啟 Day 2 Google Maps 多點導航
+        </a>
+      </div>
+
+      <!-- Embedded Google Map Preview -->
+      <div style="margin-top:15px;">
+        <h4 style="font-size:0.95rem; color:#334155; margin-bottom:6px;">📍 區域地理與路況預覽 (台中市區樞紐)</h4>
+        <iframe class="map-embed" src="https://maps.google.com/maps?q=台中逢甲星享道酒店&t=&z=12&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
       </div>
     </section>
 
@@ -330,7 +403,7 @@
           </div>
         </div>
         <div class="links-bar">
-          <a class="link-pill" href="https://maps.google.com/?q=逢甲星享道酒店" target="_blank">📍 Google 地圖導航</a>
+          <a class="link-pill map-btn" href="https://maps.google.com/?q=逢甲星享道酒店" target="_blank">📍 Google 地圖導航</a>
           <a class="link-pill" href="http://www.inskyhotel.com/" target="_blank">🌐 星享道酒店官網</a>
           <a class="link-pill" href="tel:0427062208">📞 預約專線：04-2706-2208</a>
         </div>
@@ -339,103 +412,106 @@
 
     <!-- Day 1 Itinerary -->
     <section id="itinerary-d1" class="section">
-      <h2 class="section-title">📅 第一天：外埔水流東・清水小吃・霧峰林家宮保第・亞大安藤忠雄美術館 (9/25 週五)</h2>
+      <h2 class="section-title">📅 第一天：由南往北順序推進・絕不折返 (9/25 週五)</h2>
       <div class="day-card">
         <div class="day-header">
-          <div class="day-date">9/25 (五) 台南出發 ➔ 水流東高鐵觀景台 ➔ 清水阿財米糕 ＆ 樹下阿婆粉圓 ➔ 霧峰林家宮保第 ➔ 亞洲大學現代美術館 ➔ 逢甲星享道酒店</div>
-          <span class="day-tag">山海鐵道 ＆ 國定古蹟藝術日</span>
+          <div class="day-date">9/25 (五) 台南 ➔ 霧峰林家宮保第 ➔ 南屯六月初一 ➔ 第五市場捲捲肉桂 ➔ 清水眷村 ➔ 阿財米糕 ➔ 逢甲星享道酒店</div>
+          <span class="day-tag">順向由南往北・流暢不回頭</span>
         </div>
         <div class="day-body">
           <div class="timeline-item">
             <div class="timeline-dot"></div>
-            <span class="time-slot">07:30 - 08:00</span><span class="duration-badge">30 分鐘</span>
+            <span class="time-slot">07:45 - 08:15</span><span class="duration-badge">30 分鐘</span>
             <div class="item-title">台南出發：健康路集合 ＆ 享用摩斯漢堡元氣早餐</div>
-            <div class="item-transit">🚗 行車建議：台南健康路出發，接台86線或大同路直上國道3號北上（走國道3號前往外埔比國道1號更平穩順暢，車程約 1 小時 40 分鐘）。</div>
-            <div class="item-desc">早晨在健康路摩斯漢堡買份早餐與熱咖啡，避開台南與中部市區尖峰車潮，準時出發。</div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <span class="time-slot">09:40 - 11:00</span><span class="duration-badge">停留 1 小時 20 分鐘</span>
-            <div class="item-title">外埔水流東桐花步道 ＆ 高鐵觀景台</div>
-            <div class="item-transit">🚗 下一站前往方式：由外埔接甲后路經國道4號/台17線，開車約 18 分鐘直達清水紫雲巖文化街。</div>
-            <div class="item-desc">
-              昔稱「水流東圳」，因地勢西高東低形成特殊的向東流圳溝。步道綠樹成蔭、極為平緩好走，沿途經過在地葡萄果園與葡萄酒莊。
-            </div>
-            <div class="highlight-box">
-              <strong>🔥 必去亮點：</strong>步道盡頭的<strong>「高鐵觀景台」</strong>！在此居高臨下近距離俯瞰台灣高鐵列車呼嘯而過，震撼感十足，是鐵道迷與攝影愛好者必訪的視野寶地。
-            </div>
+            <div class="item-transit">🚗 行車動線：健康路出發直上國道 3 號北上（台中最南端的霧峰交流道剛好是國道 3 號第一站，車程約 1.5 小時，完全不用穿過台中市區！）。</div>
             <div class="links-bar">
-              <a class="link-pill" href="https://maps.google.com/?q=水流東桐花步道高鐵觀景台" target="_blank">📍 高鐵觀景台導航</a>
-              <a class="link-pill" href="https://yoke918.tw/we/" target="_blank">📖 青青小熊遊記參考</a>
+              <a class="link-pill map-btn" href="https://maps.google.com/?q=摩斯漢堡台南健康店" target="_blank">📍 摩斯漢堡健康店導航</a>
             </div>
           </div>
 
+          <!-- Spot 1: Wufeng -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
-            <span class="time-slot">11:20 - 13:00</span><span class="duration-badge">停留 1 小時 40 分鐘</span>
-            <div class="item-title">清水經典午餐：阿財米糕店 ＆ 樹下阿婆粉圓冰</div>
-            <div class="item-transit">🚗 下一站前往方式：由清水走國道4號接國道3號直達霧峰交流道下，開車僅約 35 分鐘，完全避開台中市區紅綠燈與塞車！</div>
-            <div class="item-desc">來到台中海線不可錯過的靈魂小吃雙享宴！週五中午前往免去週末恐怖排隊人潮。</div>
-            <div class="highlight-box">
-              <strong>🍴 必吃推薦名單：</strong>
-              1. <strong>阿財米糕店：</strong>在地飄香數十年的排隊名店！米粒吸滿肉燥與豬油香氣，鋪上肥瘦相間的油亮三層肉，淋上獨門甘甜辣醬，配肉羹湯最道地。<br>
-              2. <strong>樹下阿婆粉圓：</strong>紫雲巖廟前百年榕樹下的經典古早味！任選粉圓、粉粿、梅子，碎冰淋上自熬黑糖與梅子汁，酸甜Q彈解膩又消暑！
-            </div>
-            <div class="links-bar">
-              <a class="link-pill" href="https://maps.google.com/?q=清水阿財米糕" target="_blank">📍 阿財米糕導航</a>
-              <a class="link-pill" href="https://maps.google.com/?q=樹下阿婆粉圓" target="_blank">📍 樹下阿婆粉圓導航</a>
-              <a class="link-pill" href="https://yoke918.tw/4936/" target="_blank">📖 清水米糕美食食記</a>
-            </div>
-          </div>
-
-          <!-- Wufeng Lin Family Mansion -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <span class="time-slot">13:45 - 15:25</span><span class="duration-badge">停留 1 小時 40 分鐘</span>
+            <span class="time-slot">09:45 - 11:15</span><span class="duration-badge">停留 1 小時 30 分鐘</span>
             <div class="item-title">霧峰林家宮保第園區 (國定古蹟・台灣第一閩南官宅)</div>
-            <div class="item-transit">🚗 下一站前往方式：沿柳豐路行駛 8 分鐘即抵達亞洲大學現代美術館。</div>
-            <div class="item-desc">
-              台灣現存規模最大的清代一品官宅，建於 1858 年，名列國定古蹟。園區由下厝宮保第與大花廳兩大核心組成。
-            </div>
+            <div class="item-transit">🚗 下一站前往方式：由霧峰走中投公路或台74線快速道路直達南屯永春東路，車程僅需 15 分鐘！</div>
             <div class="wufeng-box">
-              <strong>🏛️ 霧峰林家精華必看：</strong>
-              1. <strong>大花廳福州戲台：</strong>蔡依林與安室奈美惠 MV 取景地！全台唯一僅存的福州式木造雙層戲台，八角藻井頂端雕有一朵盛開的金色牡丹花，象徵富貴平安，工藝登峰造極。<br>
-              2. <strong>五落大厝官宅氣勢：</strong>面寬十一開間、前後五進的壯闊規格，樑柱彩繪、磚雕與精美屏風深具歷史底蘊。
-            </div>
-            <div class="avoid-box">
-              <strong>⚠️ 參觀指南：</strong>園區門票包含專人定時深度導覽（約 60 分鐘），強烈建議跟隨導覽員解說，能聽懂林家在台灣歷史上的傳奇風雲故事。
+              <strong>🏛️ 霧峰林家必訪亮點：</strong>
+              1. <strong>大花廳福州戲台：</strong>蔡依林與安室奈美惠 MV 拍攝地！全台唯一僅存的福州式木造雙層戲台，八角藻井雕刻金色牡丹花。<br>
+              2. <strong>五落大厝官宅氣勢：</strong>前後五進的壯闊清代一品官宅，週五上午遊客極少，跟隨專人解說體驗極佳。
             </div>
             <div class="links-bar">
-              <a class="link-pill" href="https://maps.google.com/?q=霧峰林家宮保第園區" target="_blank">📍 霧峰林家導航</a>
+              <a class="link-pill map-btn" href="https://maps.google.com/?q=霧峰林家宮保第園區" target="_blank">📍 Google 導航至宮保第</a>
               <a class="link-pill" href="https://www.wufenglins.com.tw/" target="_blank">🌐 官方網站</a>
             </div>
           </div>
 
-          <!-- Asia University Museum of Modern Art -->
+          <!-- Spot 2: June 1st -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
-            <span class="time-slot">15:35 - 17:15</span><span class="duration-badge">停留 1 小時 40 分鐘</span>
-            <div class="item-title">亞洲大學現代美術館 (安藤忠雄清水模建築) ＆ 光復新村</div>
-            <div class="item-transit">🚗 下一站前往方式：從霧峰直上台74線快速道路（中潭公路交流道），走高架快線直達西屯市政路/西屯路下，約 20 分鐘直抵逢甲星享道酒店，完全免除塞車！</div>
+            <span class="time-slot">11:30 - 12:30</span><span class="duration-badge">停留 1 小時</span>
+            <div class="item-title">六月初一 8結蛋捲・永春觀光旗艦店 (清水模禮物之丘)</div>
+            <div class="item-transit">🚗 下一站前往方式：由永春東路直行向上路往西區第五市場，開車僅需 10 分鐘！</div>
             <div class="item-desc">
-              普立茲克建築獎得主<strong>安藤忠雄在台灣的首座代表作</strong>！整棟建築由三座正三角形結構交錯疊加而成，展現極致精湛的清水混凝土（清水模）與光影交錯美學。
+              位於南屯的超美「清水模禮物之丘」。正值中午時分，室內冷氣開放、空間極其寬敞舒適。
             </div>
-            <div class="highlight-box">
-              <strong>🔥 必去亮點：</strong>欣賞純淨清水模牆面上三角形天窗的光影流轉；漫步戶外草坪與羅丹《沉思者》雕像合影；若時間有餘裕，可順道漫步至旁邊的<strong>「光復新村」</strong>眷村老宅林蔭步道。
+            <div class="eggroll-box">
+              <strong>🌟 旗艦店特色：</strong>
+              1. <strong>整塊免費大方試吃：</strong>全系列口味 8 結蛋捲直接整塊提供試吃，現場附熱茶！<br>
+              2. <strong>吹冷氣採買伴手禮：</strong>兩棵百年老梅樹與清水模建築極具拍照質感，門口專屬停車位停車完全無負擔。
             </div>
             <div class="links-bar">
-              <a class="link-pill" href="https://maps.google.com/?q=亞洲大學現代美術館" target="_blank">📍 亞大現代美術館導航</a>
-              <a class="link-pill" href="http://asiamodern.asia.edu.tw/" target="_blank">🌐 亞美館官網</a>
+              <a class="link-pill map-btn" href="https://maps.google.com/?q=六月初一8結蛋捲+永春觀光旗艦店" target="_blank">📍 Google 導航至六月初一</a>
             </div>
           </div>
 
+          <!-- Spot 3: Cinnamon Roll -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
-            <span class="time-slot">17:45 - 18:30</span><span class="duration-badge">入住休整</span>
+            <span class="time-slot">12:45 - 13:45</span><span class="duration-badge">停留 1 小時</span>
+            <div class="item-title">捲捲肉桂 (Triple 3 Rolls) ＆ 第五市場午餐小吃</div>
+            <div class="item-transit">🚗 下一站前往方式：由西區中正路接特一號快速道路或台灣大道往清水，開車約 25 分鐘。</div>
+            <div class="cinnamon-box">
+              <strong>🥐 必買人氣推薦：</strong>
+              1. <strong>法國老闆現烤肉桂捲（$65）：</strong>剛好正午出爐！外皮微酥、內部濕潤鬆軟，大推「白檸檬肉桂捲」與經典原味，順便外帶整盒！<br>
+              2. <strong>市場順遊午餐：</strong>第五市場著名的正老牌魷魚羹、阿彬爌肉飯皆在旁邊，順路填飽肚子。
+            </div>
+            <div class="links-bar">
+              <a class="link-pill map-btn" href="https://maps.google.com/?q=捲捲肉桂+Triple+3+rolls" target="_blank">📍 Google 導航至捲捲肉桂</a>
+            </div>
+          </div>
+
+          <!-- Spot 4: Qingshui Military Village & Snacks -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="time-slot">14:15 - 16:45</span><span class="duration-badge">停留 2.5 小時</span>
+            <div class="item-title">清水眷村文化園區 ➔ 阿財米糕店 ＆ 樹下阿婆粉圓冰 (午後完全不排隊)</div>
+            <div class="item-transit">🚗 下一站前往方式：由清水走國道4號接台74線快速道路直達西屯逢甲，開車僅需 18 分鐘！</div>
+            <div class="item-desc">
+              午後時分造訪清水，避開了正午的悶熱與排隊人潮！先至「清水眷村文化園區 ＆ 港區藝術中心」漫步在老榕樹、紅磚黑瓦矮房與水榭庭台之間；隨後開車 5 分鐘至紫雲巖前享用清水經典小吃。
+            </div>
+            <div class="highlight-box">
+              <strong>🍴 清水小吃亮點（下午完全免排隊）：</strong><br>
+              • <strong>阿財米糕店：</strong>下午 15:30 造訪完全免排長隊！熱氣蒸騰的糯米拌上肥瘦三層肉與特調紅醬，配一碗肉羹湯極為過癮。<br>
+              • <strong>樹下阿婆粉圓冰：</strong>紫雲巖廟前百年榕樹下，古法手作粉圓粉粿佐梅子黑糖碎冰，清涼爽口！
+            </div>
+            <div class="links-bar">
+              <a class="link-pill map-btn" href="https://maps.google.com/?q=清水眷村文化園區" target="_blank">📍 導航至清水眷村</a>
+              <a class="link-pill map-btn" href="https://maps.google.com/?q=阿財米糕店" target="_blank">📍 導航至阿財米糕</a>
+              <a class="link-pill map-btn" href="https://maps.google.com/?q=樹下阿婆粉圓" target="_blank">📍 導航至阿婆粉圓</a>
+            </div>
+          </div>
+
+          <!-- Hotel & Fengjia Night Market -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="time-slot">17:15 - 18:30</span><span class="duration-badge">入住休整</span>
             <div class="item-title">入住逢甲星享道酒店 ➔ 享受房內設施與足湯放鬆</div>
             <div class="item-desc">
-              車輛直駛飯店專屬地下停車場，辦理入住 Check-in。在舒適客房稍作梳洗休息，可前往頂樓空中花園享受舒緩泡腳足湯。
+              車輛直駛飯店專屬地下停車場，辦理入住 Check-in。放妥剛買的肉桂捲與 8 結蛋捲伴手禮，在舒適客房稍作梳洗休息，前往頂樓空中花園享受舒緩泡腳足湯。
+            </div>
+            <div class="links-bar">
+              <a class="link-pill map-btn" href="https://maps.google.com/?q=台中逢甲星享道酒店" target="_blank">📍 導航至星享道酒店</a>
             </div>
           </div>
 
@@ -444,23 +520,23 @@
             <span class="time-slot">18:45 - 21:30</span><span class="duration-badge">停留 2.5 小時</span>
             <div class="item-title">逢甲夜市美食探索 ➔ 散步回飯店享受寧靜夜間</div>
             <div class="item-desc">
-              從星享道酒店步行僅 5 分鐘即進入文華路夜市核心，免去塞車與停車之苦！
+              從星享道酒店步行僅 5 分鐘即進入文華路夜市核心，免去塞車與停車之苦！官芝霖大腸包小腸、明倫蛋餅、海邊小屋現烤乾燒蛤。
             </div>
-            <div class="highlight-box">
-              <strong>🍴 必吃推薦名單：</strong>官芝霖大腸包小腸、明倫蛋餅、海邊小屋現烤乾燒蛤、一心臭豆腐。
+            <div class="links-bar">
+              <a class="link-pill map-btn" href="https://maps.google.com/?q=逢甲夜市" target="_blank">📍 導航至逢甲夜市</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Day 2 Itinerary -->
+    <!-- Day 2 Itinerary: Southward Pure Run -->
     <section id="itinerary-d2" class="section">
-      <h2 class="section-title">📅 第二天：臺中綠美圖・肉桂捲・六月初一清水模・故宮南院《龍藏經》 (9/26 週六)</h2>
+      <h2 class="section-title">📅 第二天：由北往南一路順暢・國寶落日夕陽 (9/26 週六)</h2>
       <div class="day-card">
         <div class="day-header">
-          <div class="day-date">9/26 (六) 星享道早餐 ➔ 臺中綠美圖 ➔ 第五市場肉桂捲 ➔ 六月初一永春旗艦店 ➔ 南下嘉義太保 ➔ 故宮南院《龍藏經》特展 ＆ 至美橋落日 ➔ 順暢返抵台南</div>
-          <span class="day-tag">當代美學・美饌手作 ＆ 國寶湖畔夕照</span>
+          <div class="day-date">9/26 (六) 星享道早餐 ➔ 臺中綠美圖 ➔ kafeD水湳旗艦店 ➔ 國1直下嘉義太保 ➔ 故宮南院常設展覽 ＆ 至美橋落日 ➔ 順暢返抵台南</div>
+          <span class="day-tag">一路向南・完全不塞車</span>
         </div>
         <div class="day-body">
           <div class="timeline-item">
@@ -482,85 +558,63 @@
               <strong>🔥 必去亮點：</strong>純白色金屬擴張網雙層外牆，隨著不同時刻陽光與天色折射出輕盈朦朧的流動感，宛如漂浮在綠色公園森林中的精緻美術館；串聯北側抹茶湖散步。
             </div>
             <div class="links-bar">
-              <a class="link-pill" href="https://maps.google.com/?q=臺中綠美圖" target="_blank">📍 臺中綠美圖導航</a>
+              <a class="link-pill map-btn" href="https://maps.google.com/?q=臺中綠美圖" target="_blank">📍 導航至臺中綠美圖</a>
               <a class="link-pill" href="https://yoke918.tw/green-museumbrary/" target="_blank">📖 青青小熊綠美圖搶先看</a>
             </div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-dot"></div>
-            <span class="time-slot">11:50 - 12:20</span><span class="duration-badge">停留 30 分鐘</span>
-            <div class="item-title">第五市場快閃：法國人肉桂捲（Triple 3 Rolls 捲捲捲）</div>
-            <div class="item-transit">🚗 前往方式：由水湳走中清路/五權路開車約 15 分鐘至西區第五市場周邊（自治街/大明街口）。</div>
+            <span class="time-slot">11:45 - 12:45</span><span class="duration-badge">停留 1 小時</span>
+            <div class="item-title">kafeD 台中水湳旗艦店 (德式年輪蛋糕與精品咖啡午茶)</div>
+            <div class="item-transit">🚗 前往方式：由綠美圖沿凱旋路/經貿五路直行，開車僅需 4 分鐘即可抵達！店前附設專用停車位。</div>
             <div class="item-desc">
-              法國老闆用可愛流利中文親切介紹的手作肉桂捲名攤！一顆只要 $65 的佛心價格，多層次酥軟肉桂香氣十足。
+              包浩斯極簡純白風格的獨棟旗艦店，室內引進義大利頂級咖啡機，中庭種植近百歲的橄欖老樹，光影灑落極其靜謐舒心。
             </div>
             <div class="highlight-box">
-              <strong>🍴 必買推薦：</strong>經典原味、草莓肉桂、酸甜清爽的白檸檬肉桂捲，直接外帶一盒帶在車上當下午茶點心享用！
-            </div>
-            <div class="avoid-box">
-              <strong>⚠️ 外帶小訣竅：</strong>市場巷弄狹小，一人下車快速排隊購買外帶，車輛在周邊外圍大馬路慢行暫等即可。
+              <strong>🍴 必嚐美饌：</strong>手工製作的招牌「德式年輪厚夾心蛋糕」、巴伐利亞堅果手沖單品咖啡與輕食，在出發南下前充分享受優雅的午間時光。
             </div>
             <div class="links-bar">
-              <a class="link-pill" href="https://maps.google.com/?q=卷卷卷-肉桂捲專賣店" target="_blank">📍 卷卷卷肉桂捲導航</a>
+              <a class="link-pill map-btn" href="https://maps.google.com/?q=kafeD+台中水湳旗艦店" target="_blank">📍 導航至 kafeD 水湳店</a>
             </div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-dot"></div>
-            <span class="time-slot">12:35 - 13:45</span><span class="duration-badge">停留 1 小時 10 分鐘</span>
-            <div class="item-title">六月初一 永春觀光旗艦店 (清水模禮物之丘・8結蛋捲伴手禮 ＆ 下午茶)</div>
-            <div class="item-transit">🚗 前往方式：由第五市場沿南屯永春東路開車約 12 分鐘直達門口（台中市南屯區永春東路1390-3號），店門附設專屬停車格。</div>
-            <div class="item-desc">
-              台中最美的「清水模禮物之丘」！俐落簡約的清水模線條搭配滿屋綠意與老梅樹，宛如置身美術館。
-            </div>
-            <div class="highlight-box">
-              <strong>🔥 特色體驗：</strong>
-              1. <strong>伴手禮大方試吃：</strong>店內提供整塊招牌 8 結蛋捲（濃黑巧克力、經典原味、抹茶等）大方免費試吃與奉茶，採買伴手禮超方便！<br>
-              2. <strong>清水模下午茶：</strong>室內冷氣開放、備有日式榻榻米與舒適沙發區，可在此悠閒享用輕食冷泡茶。
-            </div>
-            <div class="links-bar">
-              <a class="link-pill" href="https://maps.google.com/?q=六月初一8結蛋捲永春觀光旗艦店" target="_blank">📍 六月初一旗艦店導航</a>
-              <a class="link-pill" href="https://www.june1.com.tw/" target="_blank">🌐 六月初一官網</a>
-            </div>
+            <span class="time-slot">12:50 - 14:10</span><span class="duration-badge">車程 1 小時 20 分</span>
+            <div class="item-title">南下啟程：大雅交流道直上國道 1 號 ➔ 嘉義太保</div>
+            <div class="item-transit">🚗 行車動線：kafeD 出門 3 分鐘直接上國道 1 號大雅交流道，一路向南直奔嘉義水上交流道（或接台82線太保交流道下），車程約 1 小時 15 分鐘，行車極為順暢。</div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-dot"></div>
-            <span class="time-slot">13:50 - 15:00</span><span class="duration-badge">車程 1 小時 10 分</span>
-            <div class="item-title">南下啟程：南屯交流道直上國道 1 號 ➔ 嘉義太保故宮南院</div>
-            <div class="item-transit">🚗 行車動線：六月初一門口 3 分鐘直接上國道 1 號南屯交流道，順暢南下至嘉義水上交流道（或接台82線太保交流道下），車程約 1 小時 10 分鐘，完美避開中部北上收假潮。</div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <span class="time-slot">15:00 - 17:30</span><span class="duration-badge">停留 2.5 小時 (時間極充裕)</span>
-            <div class="item-title">嘉義故宮南院 (國立故宮博物院南部院區) 國寶《龍藏經》深度巡禮 ＆ 至美橋落日</div>
+            <span class="time-slot">14:15 - 17:15</span><span class="duration-badge">停留 3 整小時 (時間超充裕)</span>
+            <div class="item-title">嘉義故宮南院 (國立故宮博物院南部院區) 深度巡禮 ＆ 至美橋落日</div>
             <div class="item-transit">🚗 前往方式：由台82線太保交流道下，開車 5 分鐘抵達故宮南院南側停車場。</div>
             <div class="item-desc">
-              由國際建築大師姚仁喜操刀設計，建築線條如水墨濃墨飛白，矗立於廣闊人工湖中央。午後有完整 2.5 小時可以在展館內外細細品味！
+              由國際建築大師姚仁喜操刀設計，建築線條如水墨濃墨飛白，矗立於廣闊人工湖中央。午後有完整的 3 小時可以在展館內外細細品味！
             </div>
             <div class="npm-box">
               <strong>🏛️ 故宮南院精選看點：</strong>
-              1. <strong>國寶《龍藏經》常設特展（S303展廳）：</strong>康熙皇帝奉孝莊太皇太后之命耗費數年泥金抄寫之藏文大藏經，108函完整護經板、七彩經衣與泥金字體精妙絕倫，此生必看震撼之作！<br>
+              1. <strong>國寶常設展覽：</strong>展出故宮極具盛名的亞洲織品、陶瓷、玉器佛像與各期院藏精選特展。<br>
               2. <strong>至美橋湖畔漫步：</strong>長達 141 公尺的雙弧形跨湖大橋，傍晚 16:30~17:00 金黃落日倒映在湖面上，水天一色，極具詩意與寧靜感！<br>
               3. <strong>湖畔水舞與景觀公園：</strong>若逢特定週末傍晚，可欣賞湖畔水舞光影演出。
             </div>
-            <div class="avoid-box">
-              <strong>⚠️ 參觀指南：</strong>展廳 17:00 停止入場、18:00 閉館；戶外景觀園區至夜間依然開放，散步拍照非常舒服。
-            </div>
             <div class="links-bar">
-              <a class="link-pill" href="https://maps.google.com/?q=故宮南院" target="_blank">📍 故宮南院導航</a>
+              <a class="link-pill map-btn" href="https://maps.google.com/?q=國立故宮博物院南部院區" target="_blank">📍 導航至故宮南院</a>
               <a class="link-pill" href="https://south.npm.gov.tw/" target="_blank">🌐 故宮南院官網</a>
             </div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-dot"></div>
-            <span class="time-slot">17:35 啟程</span><span class="duration-badge">行車 40 分鐘</span>
+            <span class="time-slot">17:20 啟程</span><span class="duration-badge">行車 40 分鐘</span>
             <div class="item-title">由台82快速道路直上國道1號 ➔ 平安順暢返抵台南健康路</div>
             <div class="item-desc">
-              太保距離台南非常近！走台 82 接國 1 南下回到台南市區僅需約 40～45 分鐘，傍晚約 18:15 即可回到家，完全避開週日收假大塞車，晚餐還能悠閒在台南享用！
+              太保距離台南非常近！走台 82 接國 1 南下回到台南市區僅需約 40～45 分鐘，傍晚約 18:05 即可回到家，完全避開週日收假大塞車，晚餐還能悠閒在台南享用！
+            </div>
+            <div class="links-bar">
+              <a class="link-pill map-btn" href="https://maps.google.com/?q=702台南市南區健康路二段" target="_blank">📍 導航返回台南健康路</a>
             </div>
           </div>
         </div>
@@ -569,21 +623,22 @@
 
     <!-- Driving & Parking Tips -->
     <section id="tips-section" class="section">
-      <h2 class="section-title">💡 升級版自駕與停車避雷總結</h2>
+      <h2 class="section-title">💡 絕對順路自駕策略分析</h2>
       <div class="grid-2">
         <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:10px; padding:16px;">
-          <h4 style="color:#0f766e; margin-bottom:8px;">🚗 路線與時段最佳建議</h4>
+          <h4 style="color:#0f766e; margin-bottom:8px;">🚗 順向幾何優勢（完全零折返）</h4>
           <p style="font-size:0.9rem; color:#334155; line-height:1.6;">
-            • <strong>清水至霧峰全快速路網：</strong>清水吃完米糕後走國 4 轉國 3 直達霧峰，完全不進台中市區等紅綠燈，省下大筆行車時間！<br>
-            • <strong>南屯上國 1 南下極順：</strong>六月初一就在南屯交流道旁，買完伴手禮 3 分鐘直接上高速公路直奔嘉義太保，動線完全無縫接軌。
+            • <strong>D1 由南往北：</strong>台南 ➔ 霧峰（國3最先到）➔ 南屯（台74）➔ 第五市場（中）➔ 清水（北）➔ 逢甲（西屯入住）。整天方向純向北，絕無「南下又折回」的冤枉路！<br>
+            • <strong>D2 一路向南：</strong>西屯逢甲 ➔ 水湳綠美圖 ➔ 國1直奔南下太保故宮南院 ➔ 台南。單向返南，節奏舒暢。
           </p>
         </div>
 
         <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:10px; padding:16px;">
-          <h4 style="color:#e11d48; margin-bottom:8px;">⚠️ 景點停車停放策略</h4>
+          <h4 style="color:#e11d48; margin-bottom:8px;">⚠️ 停車停放策略</h4>
           <p style="font-size:0.9rem; color:#334155; line-height:1.6;">
-            • <strong>清水市區：</strong>阿財米糕附近紅線多，務必停「紫雲巖地下收費停車場」。<br>
-            • <strong>霧峰林家 ＆ 亞大美術館：</strong>林家宮保第旁有專用收費停車場；亞大校區周邊停車格寬敞好停。<br>
+            • <strong>第五市場（捲捲肉桂）：</strong>建議臨停周邊收費停車格或派一人下車外帶。<br>
+            • <strong>六月初一永春店：</strong>店門口自備免費停車位，停車極其方便。<br>
+            • <strong>逢甲星享道：</strong>專屬免費地下停車，車輛停妥後步行逛逢甲夜市最輕鬆！<br>
             • <strong>故宮南院：</strong>停放南側大型收費停車場，步行經至美橋入館景觀最震撼。
           </p>
         </div>
@@ -591,7 +646,7 @@
     </section>
 
     <footer>
-      <p>💡 此檔案已完整生成為 <strong>taichung_trip.html</strong>，無遺漏任何亮點，支援手機瀏覽器點擊導航！</p>
+      <p>💡 此檔案已結合 Google Maps 完整多點導航為 <strong>taichung_trip.html</strong>，上車點擊即可帶路！</p>
       <p style="margin-top:4px;">祝 9/25-9/26 台中・霧峰・故宮南院兩天一夜自駕之旅平安順心、滿載而歸 🌟</p>
     </footer>
   </div>
